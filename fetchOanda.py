@@ -98,24 +98,4 @@ def fill_db_to_present_day():
 	else:
 		print ("database max date is equal to today")
 
-def misc():
-	with open('selectMaxDateSqlQuery.bat', 'w') as f:
-		f.write("sqlcmd -S {0} -i {1} -o {2}".format(serverName, queryName, queryResponse))
-
-	start = datetime.date( year = 2010, month = 1, day = 1 )
-	end = datetime.date( year = 2010, month = 1, day = 5 )
-	
-def misc2():
-	date_object = datetime.datetime.strptime("2011-09-04", '%Y-%m-%d')
-	date_object2 = datetime.datetime.strptime("2014-09-04", '%Y-%m-%d') 
-	insertIntoDB_FromCurrencyToCurrencyDateRate("CHF", "EUR", "2014-09-01")
-
-def misc3():
-	s = datetime.datetime.strptime("2014-09-01", '%Y-%m-%d').date()
-	s += datetime.timedelta(days=1)
-
-	e = datetime.datetime.strptime("2014-09-04", '%Y-%m-%d').date()
- 
-	printRateRange("CHF", "EUR", s, e)
-
 fill_db_to_present_day()
