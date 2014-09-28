@@ -67,9 +67,7 @@ def get_max_date_in_db():
 	with open('queryResponse.txt', 'r') as f:
 		read_data = f.read() 
 		match = re.search(r'\d{4}-\d{2}-\d{2}', read_data)
-		return (datetime.datetime.strptime(match.group(0), '%Y-%m-%d').date())
-
-#print (get_max_date_in_db())
+		return (datetime.datetime.strptime(match.group(0), '%Y-%m-%d').date()) 
 
  
 def daterange( start_date, end_date ):
@@ -84,9 +82,8 @@ def daterange( start_date, end_date ):
 def insertIntoDB_RateRange(fromCurrency, toCurrency, dateStart, dateEnd):
 	for date in daterange( dateStart, dateEnd ): 
 		insertIntoDB_FromCurrencyToCurrencyDateRate(fromCurrency, toCurrency, date)
-
-
-
+ 
+ 
 def fill_db_to_present_day():
 	today = datetime.date.today()  
 	max_date_in_db = get_max_date_in_db()
